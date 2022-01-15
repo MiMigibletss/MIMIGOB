@@ -128,9 +128,6 @@ const SnsLoginPage = (props) => {
                   >
                     로그인
                   </button>
-                  <div>
-                    <a className="back" href="/">뒤로가기</a>
-                  </div>
                 </div>
               </div>
             </form>
