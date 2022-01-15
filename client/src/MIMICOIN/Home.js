@@ -10,7 +10,7 @@ const Home = (props) => {
     Axios.get(`/api/mysql/users/logout`).then((response) => {
       console.log(response);
       if (response.status === 200) {
-        props.history.push("/sns");
+        props.history.push("/");
       } else {
         alert("Log Out Failed");
       }

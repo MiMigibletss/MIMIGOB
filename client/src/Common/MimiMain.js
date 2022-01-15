@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
-import Auth from "../Common/hoc/auth";
-import Home from "../SNS/Home";
+import Auth from "./hoc/auth";
+import Home from "../MIMICOIN/Home";
 // import Profile from "../SNS/Profile";
 // import Latter from "../SNS/Latter";
 // import Pic from "../SNS/Pic";

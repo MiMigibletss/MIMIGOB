@@ -1,5 +1,5 @@
 import React from "react";
-import SNSMain from "./SNSMain";
+import SNSMain from "./MimiMain";
 
 import MainPage from "./AllLoingPage";
 function App() {
