@@ -44,9 +44,7 @@ function RegisterPage(props) {
         email: "",
         password: "",
         confirmPassword: "",
-        // address: "",
-        // gender: "",
-        // role: "",
+   
       }}
       validationSchema={Yup.object().shape({
         email: Yup.string()
@@ -72,9 +70,6 @@ function RegisterPage(props) {
             password: values.password,
             public: values.public,
             private: values.private,
-            // address: values.address,
-            // gender: values.gender,
-            // image: `uploads/img/default_profile_image.png`,
             db: true, // MySQL
           };
 
@@ -226,7 +221,7 @@ function RegisterPage(props) {
               >
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="inputGroup-sizing-default">
-                    비밀번호
+                    비밀번호확인
                   </span>
                   <Input
                     id="confirmPassword"
@@ -259,7 +254,7 @@ function RegisterPage(props) {
               >
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="inputGroup-sizing-default">
-                    비밀번호
+                  퍼블릭 주소
                   </span>
                   <Input
                     id="public"
@@ -290,7 +285,7 @@ function RegisterPage(props) {
               >
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="inputGroup-sizing-default">
-                    비밀번호
+                    프라이빗 키
                   </span>
                   <Input
                     id="private"
@@ -316,50 +311,10 @@ function RegisterPage(props) {
                 </div>
               </Form.Item>
 
-              {/* <Form.Item required label="주소">
-                <Input
-                  id="address"
-                  placeholder="주소를 입력하세요."
-                  type="text"
-                  value={values.address}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={
-                    errors.address && touched.address
-                      ? "text-input error"
-                      : "text-input"
-                  }
-                />
-                {errors.address && touched.address ? (
-                  <div className="input-feedback">{errors.address}</div>
-                ) : (
-                  <div className="input-feedback"></div>
-                )}
-              </Form.Item>
-
-              <Form.Item required label="성별">
-                <Input
-                  id="gender"
-                  placeholder="본인의 성을 선택해주세요."
-                  type="text"
-                  value={values.gender}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={
-                    errors.gender && touched.gender
-                      ? "text-input error"
-                      : "text-input"
-                  }
-                />
-                {errors.gender && touched.gender ? (
-                  <div className="input-feedback">{errors.gender}</div>
-                ) : (
-                  <div className="input-feedback"></div>
-                )}
-              </Form.Item> */}
+           
 
               <Form.Item
-              // {...tailFormItemLayout}
+            
               >
                 <Button
                   onClick={handleSubmit}

@@ -22,10 +22,7 @@ router.post('/', async (req, res, next) => {
       password: hashedPassword,
       public: req.body.public,
       private: req.body.private,
-      image: req.body.image,
-      address: req.body.address,
-      gender: req.body.gender,
-      role: req.body.role,
+ 
     });
     return res.status(200).json({
       success: true

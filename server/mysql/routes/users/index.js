@@ -13,14 +13,9 @@ router.get("/auth", auth, (req, res) => {
         isAuth: true,
         email: req.user.email,
         name: req.user.name,
-        role: req.user.role,
-        image: req.user.image,
-        address: req.user.address,
-        gender: req.user.gender,
         public: req.user.public,
         private: req.user.private,
-        couple_code: req.user.couple_code,
-        message: req.user.message,
+   
     });
 });
 
