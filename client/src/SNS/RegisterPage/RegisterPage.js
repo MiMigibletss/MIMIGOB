@@ -4,6 +4,8 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {  registerUser } from "../../Common/_actions/user_actions";
 import { useDispatch } from "react-redux";
+import getPrivateKey from "../../Common/components/keygenerator"
+import getPublicKey from "../../Common/components/keygenerator1";
 
 import { Form, Input, Button } from "antd";
 
@@ -42,8 +44,9 @@ function RegisterPage(props) {
         address: "",
         gender: "",
         role: "",
-        phone: "",
-        birth: "",
+        phone: getPublicKey(),
+        birth:  getPrivateKey(),
+        
         confirmPassword: "",
       }}
       validationSchema={Yup.object().shape({
@@ -260,6 +263,8 @@ function RegisterPage(props) {
                   placeholder="연락처를 입력해주세요."
                   type="text"
                   value={values.phone}
+                  readOnly
+
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className={
@@ -281,6 +286,8 @@ function RegisterPage(props) {
                   placeholder="생년월일을 입력해주세요."
                   type="text"
                   value={values.birth}
+                  readOnly
+
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className={
