@@ -28,7 +28,7 @@ const SnsLoginPage = (props) => {
           let dataToSubmit = {
             email: values.email,
             password: values.password,
-            db: true, // SNS
+            db: true, 
           };
 
           dispatch(loginUser(dataToSubmit))
