@@ -1,4 +1,3 @@
-
 import { useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
@@ -12,9 +11,8 @@ import { withRouter } from "react-router-dom";
 // } from "react-icons/md";
 // import TodayIs from "./TodayIs";
 
-
 const Home = (props) => {
-  const userInfo = useSelector(state => state.user);
+  const userInfo = useSelector((state) => state.user);
   const [User, setUser] = useState({});
 
   let userImg;
@@ -22,12 +20,12 @@ const Home = (props) => {
     userImg = props.user.userData.image;
   }
   const logoutHandler = () => {
-    Axios.get(`/api/mysql/users/logout`).then(response => {
+    Axios.get(`/api/mysql/users/logout`).then((response) => {
       console.log(response);
       if (response.status === 200) {
         props.history.push("/sns");
       } else {
-        alert('Log Out Failed')
+        alert("Log Out Failed");
       }
     });
   };
@@ -42,13 +40,29 @@ const Home = (props) => {
   //   }
   // }, [userInfo.userData]);
 
-  
-
   return (
     <div>
-       <a onClick={logoutHandler}><img className="btn-style"/>dd</a>
-       {/* src={logoutIcon} */}
-   <div>인냥</div></div>
+      {/* NAV */}
+      <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" Link="/Home">
+          &nbsp;MIMICOIN
+        </a>
+
+        <div>
+          &nbsp; &nbsp;
+          <button class="btn btn-outline-light">
+            <a onClick={logoutHandler}>
+              로그아웃
+            </a>
+          </button>
+          &nbsp; &nbsp;
+        </div>
+      </nav>
+      {/* //NAV */}
+
+      {/* src={logoutIcon} */}
+      <div>인냥</div>
+    </div>
   );
 };
 export default withRouter(Home);
