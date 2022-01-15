@@ -226,7 +226,7 @@ function RegisterPage(props) {
               >
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="inputGroup-sizing-default">
-                    비밀번호
+                    비밀번호 확인
                   </span>
                   <Input
                     id="confirmPassword"
@@ -259,7 +259,7 @@ function RegisterPage(props) {
               >
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="inputGroup-sizing-default">
-                    비밀번호
+                    PublicKey
                   </span>
                   <Input
                     id="public"
@@ -290,7 +290,7 @@ function RegisterPage(props) {
               >
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="inputGroup-sizing-default">
-                    비밀번호
+                    PrivateKey
                   </span>
                   <Input
                     id="private"
@@ -358,9 +358,11 @@ function RegisterPage(props) {
                 )}
               </Form.Item> */}
 
+
               <Form.Item
               // {...tailFormItemLayout}
               >
+                <br/><br/>
                 <Button
                   onClick={handleSubmit}
                   type="primary"
