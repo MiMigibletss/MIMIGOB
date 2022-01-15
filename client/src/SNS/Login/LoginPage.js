@@ -70,7 +70,7 @@ const SnsLoginPage = (props) => {
                       <div>
                         <input
                           id="email"
-                          placeholder=" 아이디 (이메일)"
+                          placeholder=" 아이디(이메일)"
                           type="email"
                           value={values.email}
                           onChange={handleChange}
@@ -92,7 +92,7 @@ const SnsLoginPage = (props) => {
                       <div>
                         <input
                           id="password"
-                          placeholder=" 비빔번호"
+                          placeholder=" 비밀번호"
                           type="password"
                           value={values.password}
                           onChange={handleChange}
