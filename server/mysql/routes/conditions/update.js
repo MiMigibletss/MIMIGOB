@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
       couple_code: req.body.couple_code,
       message: req.body.message,
       email: req.body.email,
-      phone: req.body.phone,
+      public: req.body.public,
       address: req.body.address,
     }, {
       where: { id: req.body.id }

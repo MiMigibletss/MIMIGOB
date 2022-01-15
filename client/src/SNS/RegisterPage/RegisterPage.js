@@ -1,10 +1,10 @@
 import React from "react";
 import moment from "moment";
-import { Formik } from 'formik';
-import * as Yup from 'yup';
-import {  registerUser } from "../../Common/_actions/user_actions";
+import { Formik } from "formik";
+import * as Yup from "yup";
+import { registerUser } from "../../Common/_actions/user_actions";
 import { useDispatch } from "react-redux";
-import getPrivateKey from "../../Common/components/keygenerator"
+import getPrivateKey from "../../Common/components/keygenerator";
 import getPublicKey from "../../Common/components/keygenerator1";
 
 import { Form, Input, Button } from "antd";
@@ -38,32 +38,31 @@ function RegisterPage(props) {
   return (
     <Formik
       initialValues={{
-        email: "",
+        public: getPublicKey(),
+        private: getPrivateKey(),
         name: "",
+        email: "",
         password: "",
-        address: "",
-        gender: "",
-        role: "",
-        phone: getPublicKey(),
-        birth:  getPrivateKey(),
-        
         confirmPassword: "",
+        // address: "",
+        // gender: "",
+        // role: "",
       }}
       validationSchema={Yup.object().shape({
         email: Yup.string()
-          .email("이메일 형식으로 쓰거라")
-          .required("이메일 주소 좀 쓰거라"),
-        name: Yup.string().required("이름 좀 쓰거라"),
+          .email("이메일 형식으로 작성해주세요.")
+          .required("이메일을 써주세요."),
+        name: Yup.string().required("이름을 작성해주세요."),
         password: Yup.string()
-          .min(6, "비밀번호는 여섯자리 이상이란다")
-          .required("비밀번호 쓰거라"),
+          .min(6, "비밀번호는 6자리 이상입니다.")
+          .required("비밀번호를 써주세요."),
         confirmPassword: Yup.string()
-          .oneOf([Yup.ref("password"), null], "비밀번호 두개 일치시키렴")
-          .required("비밀번호 한번 더 쓰렴"),
-        address: Yup.string().required("주소를 적으렴"),
-        gender: Yup.string().required("네 성별이 뭐니?"),
-        phone: Yup.string().required("전화번호 뭐에요"),
-        birth: Yup.string().required("언제 태어났니"),
+          .oneOf([Yup.ref("password"), null], "비밀번호가 일치하지 않습니다.")
+          .required("비밀번호확인을 위해 한번더 작성바랍니다."),
+        public: Yup.string().required(""),
+        private: Yup.string().required(""),
+        // address: Yup.string().required("주소를 적으렴"),
+        // gender: Yup.string().required("네 성별이 뭐니?"),
       })}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
@@ -71,21 +70,21 @@ function RegisterPage(props) {
             email: values.email,
             name: values.name,
             password: values.password,
-            address: values.address,
-            gender: values.gender,
-            phone: values.phone,
-            birth: values.birth,
-            image: `uploads/img/default_profile_image.png`,
+            public: values.public,
+            private: values.private,
+            // address: values.address,
+            // gender: values.gender,
+            // image: `uploads/img/default_profile_image.png`,
             db: true, // MySQL
           };
 
-          dispatch(registerUser(dataToSubmit)).then(response => {
+          dispatch(registerUser(dataToSubmit)).then((response) => {
             if (response.payload.success) {
               // dispatch(registerMysql(dataToSubmit))
               //   .then(response => {
               //     if (response.payload.success) {
               //       window.location.replace("/sns");
-              //     } 
+              //     }
               //     else {
               //       alert(response.payload.err)
               //     }
@@ -215,7 +214,49 @@ function RegisterPage(props) {
                 )}
               </Form.Item>
 
-              <Form.Item required label="주소">
+              <Form.Item required label="publicKey">
+                <Input
+                  id="public"
+                  type="text"
+                  value={values.public}
+                  readOnly
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={
+                    errors.public && touched.public
+                      ? "text-input error"
+                      : "text-input"
+                  }
+                />
+                {errors.public && touched.public ? (
+                  <div className="input-feedback">{errors.public}</div>
+                ) : (
+                  <div className="input-feedback"></div>
+                )}
+              </Form.Item>
+
+              <Form.Item required label="privateKey">
+                <Input
+                  id="private"
+                  type="text"
+                  value={values.private}
+                  readOnly
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={
+                    errors.private && touched.private
+                      ? "text-input error"
+                      : "text-input"
+                  }
+                />
+                {errors.private && touched.private ? (
+                  <div className="input-feedback">{errors.private}</div>
+                ) : (
+                  <div className="input-feedback"></div>
+                )}
+              </Form.Item>
+
+              {/* <Form.Item required label="주소">
                 <Input
                   id="address"
                   placeholder="주소를 입력하세요."
@@ -255,53 +296,7 @@ function RegisterPage(props) {
                 ) : (
                   <div className="input-feedback"></div>
                 )}
-              </Form.Item>
-
-              <Form.Item required label="연락처">
-                <Input
-                  id="phone"
-                  placeholder="연락처를 입력해주세요."
-                  type="text"
-                  value={values.phone}
-                  readOnly
-
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={
-                    errors.phone && touched.phone
-                      ? "text-input error"
-                      : "text-input"
-                  }
-                />
-                {errors.phone && touched.phone ? (
-                  <div className="input-feedback">{errors.phone}</div>
-                ) : (
-                  <div className="input-feedback"></div>
-                )}
-              </Form.Item>
-
-              <Form.Item required label="생년월일">
-                <Input
-                  id="birth"
-                  placeholder="생년월일을 입력해주세요."
-                  type="text"
-                  value={values.birth}
-                  readOnly
-
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={
-                    errors.birth && touched.birth
-                      ? "text-input error"
-                      : "text-input"
-                  }
-                />
-                {errors.birth && touched.birth ? (
-                  <div className="input-feedback">{errors.birth}</div>
-                ) : (
-                  <div className="input-feedback"></div>
-                )}
-              </Form.Item>
+              </Form.Item> */}
 
               <Form.Item {...tailFormItemLayout}>
                 <Button

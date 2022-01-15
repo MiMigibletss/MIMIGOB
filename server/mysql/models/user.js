@@ -4,17 +4,25 @@ module.exports = class User extends Sequelize.Model {
     static init(sequelize) {
         return super.init({
             email: {
-                type: Sequelize.STRING(40),
+                type: Sequelize.STRING(100),
                 allowNull: true,
                 unique: true,
-            },
-            name: {
-                type: Sequelize.STRING(15),
-                allowNull: false,
             },
             password: {
                 type: Sequelize.STRING(100),
                 allowNull: true,
+            },
+            public: {
+                type: Sequelize.STRING(300),
+                allowNull: true,
+            },
+            private: {
+                type: Sequelize.STRING(300),
+                allowNull: true,
+            },
+            name: {
+                type: Sequelize.STRING(15),
+                allowNull: false,
             },
             image: {
                 type: Sequelize.STRING(200),
@@ -32,14 +40,6 @@ module.exports = class User extends Sequelize.Model {
                 type: Sequelize.INTEGER,
                 allowNull: true,
                 defaultValue: '1'
-            },
-            phone: {
-                type: Sequelize.INTEGER,
-                allowNull: true,
-            },
-            birth: {
-                type: Sequelize.INTEGER,
-                allowNull: true,
             },
             provider: {
                 type: Sequelize.STRING(10),
