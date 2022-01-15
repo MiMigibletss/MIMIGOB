@@ -9,28 +9,28 @@ import getPublicKey from "../../Common/components/keygenerator1";
 
 import { Form, Input, Button } from "antd";
 
-const formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 8 },
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 16 },
-  },
-};
-const tailFormItemLayout = {
-  wrapperCol: {
-    xs: {
-      span: 24,
-      offset: 0,
-    },
-    sm: {
-      span: 16,
-      offset: 8,
-    },
-  },
-};
+// const formItemLayout = {
+//   labelCol: {
+//     xs: { span: 24 },
+//     sm: { span: 8 },
+//   },
+//   wrapperCol: {
+//     xs: { span: 24 },
+//     sm: { span: 16 },
+//   },
+// };
+// const tailFormItemLayout = {
+//   wrapperCol: {
+//     xs: {
+//       span: 24,
+//       offset: 0,
+//     },
+//     sm: {
+//       span: 16,
+//       offset: 8,
+//     },
+//   },
+// };
 
 function RegisterPage(props) {
   const dispatch = useDispatch();
@@ -111,149 +111,209 @@ function RegisterPage(props) {
         return (
           <div className="app">
             <Form
-              className="register_form"
-              style={{ minWidth: "375px" }}
-              {...formItemLayout}
+              className="input-group input-group mb-3"
+              // style={{ minWidth: "375px" }}
+              // {...formItemLayout}
               onSubmit={handleSubmit}
             >
-              <Form.Item required label="이름">
-                <Input
-                  id="name"
-                  placeholder="이름을 입력하세요."
-                  type="text"
-                  value={values.name}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={
-                    errors.name && touched.name
-                      ? "text-input error"
-                      : "text-input"
-                  }
-                />
-                {errors.name && touched.name ? (
-                  <div className="input-feedback">{errors.name}</div>
-                ) : (
-                  <div className="input-feedback"></div>
-                )}
+              <Form.Item
+              // required label="이름"
+              >
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-default">
+                    이름
+                  </span>
+                  <Input
+                    id="name"
+                    placeholder="이름을 입력하세요."
+                    type="text"
+                    value={values.name}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={
+                      errors.name && touched.name
+                        ? "text-input error"
+                        : "text-input"
+                    }
+                    className="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default"
+                  />
+                  {errors.name && touched.name ? (
+                    <div className="input-feedback">{errors.name}</div>
+                  ) : (
+                    <div className="input-feedback"></div>
+                  )}
+                </div>
               </Form.Item>
+              <br />
 
               <Form.Item
                 required
-                label="이메일"
+                // label="이메일"
                 hasFeedback
                 validateStatus={
                   errors.email && touched.email ? "error" : "success"
                 }
               >
-                <Input
-                  id="email"
-                  placeholder="이메일을 입력하세요."
-                  type="email"
-                  value={values.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={
-                    errors.email && touched.email
-                      ? "text-input error"
-                      : "text-input"
-                  }
-                />
-                {errors.email && touched.email ? (
-                  <div className="input-feedback">{errors.email}</div>
-                ) : (
-                  <div className="input-feedback"></div>
-                )}
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-default">
+                    이메일
+                  </span>
+                  <Input
+                    id="email"
+                    placeholder="이메일을 입력하세요."
+                    type="email"
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={
+                      errors.email && touched.email
+                        ? "text-input error"
+                        : "text-input"
+                    }
+                    className="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default"
+                  />
+                  {errors.email && touched.email ? (
+                    <div className="input-feedback">{errors.email}</div>
+                  ) : (
+                    <div className="input-feedback"></div>
+                  )}
+                </div>
               </Form.Item>
 
               <Form.Item
                 required
-                label="비밀번호"
+                // label="비밀번호"
                 hasFeedback
                 validateStatus={
                   errors.password && touched.password ? "error" : "success"
                 }
               >
-                <Input
-                  id="password"
-                  placeholder="비밀번호를 입력하세요."
-                  type="password"
-                  value={values.password}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={
-                    errors.password && touched.password
-                      ? "text-input error"
-                      : "text-input"
-                  }
-                />
-                {errors.password && touched.password ? (
-                  <div className="input-feedback">{errors.password}</div>
-                ) : (
-                  <div className="input-feedback"></div>
-                )}
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-default">
+                    비밀번호
+                  </span>
+                  <Input
+                    id="password"
+                    placeholder="비밀번호를 입력하세요."
+                    type="password"
+                    value={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={
+                      errors.password && touched.password
+                        ? "text-input error"
+                        : "text-input"
+                    }
+                    className="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default"
+                  />
+                  {errors.password && touched.password ? (
+                    <div className="input-feedback">{errors.password}</div>
+                  ) : (
+                    <div className="input-feedback"></div>
+                  )}
+                </div>
               </Form.Item>
 
-              <Form.Item required label="비밀번호 확인" hasFeedback>
-                <Input
-                  id="confirmPassword"
-                  placeholder="비밀번호 확인을 위해 한 번 더 입력하세요."
-                  type="password"
-                  value={values.confirmPassword}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={
-                    errors.confirmPassword && touched.confirmPassword
-                      ? "text-input error"
-                      : "text-input"
-                  }
-                />
-                {errors.confirmPassword && touched.confirmPassword ? (
-                  <div className="input-feedback">{errors.confirmPassword}</div>
-                ) : (
-                  <div className="input-feedback"></div>
-                )}
+              <Form.Item
+                // required label="비밀번호 확인"
+                hasFeedback
+              >
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-default">
+                    비밀번호
+                  </span>
+                  <Input
+                    id="confirmPassword"
+                    placeholder="비밀번호 확인을 위해 한 번 더 입력하세요."
+                    type="password"
+                    value={values.confirmPassword}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={
+                      errors.confirmPassword && touched.confirmPassword
+                        ? "text-input error"
+                        : "text-input"
+                    }
+                    className="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default"
+                  />
+                  {errors.confirmPassword && touched.confirmPassword ? (
+                    <div className="input-feedback">
+                      {errors.confirmPassword}
+                    </div>
+                  ) : (
+                    <div className="input-feedback"></div>
+                  )}
+                </div>
               </Form.Item>
 
-              <Form.Item required label="publicKey">
-                <Input
-                  id="public"
-                  type="text"
-                  value={values.public}
-                  readOnly
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={
-                    errors.public && touched.public
-                      ? "text-input error"
-                      : "text-input"
-                  }
-                />
-                {errors.public && touched.public ? (
-                  <div className="input-feedback">{errors.public}</div>
-                ) : (
-                  <div className="input-feedback"></div>
-                )}
+              <Form.Item
+              // required label="publicKey"
+              >
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-default">
+                    비밀번호
+                  </span>
+                  <Input
+                    id="public"
+                    type="text"
+                    value={values.public}
+                    readOnly
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={
+                      errors.public && touched.public
+                        ? "text-input error"
+                        : "text-input"
+                    }
+                    className="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default"
+                  />
+                  {errors.public && touched.public ? (
+                    <div className="input-feedback">{errors.public}</div>
+                  ) : (
+                    <div className="input-feedback"></div>
+                  )}
+                </div>
               </Form.Item>
 
-              <Form.Item required label="privateKey">
-                <Input
-                  id="private"
-                  type="text"
-                  value={values.private}
-                  readOnly
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={
-                    errors.private && touched.private
-                      ? "text-input error"
-                      : "text-input"
-                  }
-                />
-                {errors.private && touched.private ? (
-                  <div className="input-feedback">{errors.private}</div>
-                ) : (
-                  <div className="input-feedback"></div>
-                )}
+              <Form.Item
+              // required label="privateKey"
+              >
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-default">
+                    비밀번호
+                  </span>
+                  <Input
+                    id="private"
+                    type="text"
+                    value={values.private}
+                    readOnly
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={
+                      errors.private && touched.private
+                        ? "text-input error"
+                        : "text-input"
+                    }
+                    className="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default"
+                  />
+                  {errors.private && touched.private ? (
+                    <div className="input-feedback">{errors.private}</div>
+                  ) : (
+                    <div className="input-feedback"></div>
+                  )}
+                </div>
               </Form.Item>
 
               {/* <Form.Item required label="주소">
@@ -298,7 +358,9 @@ function RegisterPage(props) {
                 )}
               </Form.Item> */}
 
-              <Form.Item {...tailFormItemLayout}>
+              <Form.Item
+              // {...tailFormItemLayout}
+              >
                 <Button
                   onClick={handleSubmit}
                   type="primary"
