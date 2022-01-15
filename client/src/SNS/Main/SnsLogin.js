@@ -41,7 +41,7 @@ class MainLogin extends React.Component {
             className="container register_container"
             ref={(ref) => (this.container = ref)}
           >
-            <h1 className="login_page_title">PL2H WORLD</h1>
+            <h1 className="login_page_title">MIMI</h1>
             {isLogginActive && (
               <LoginPage containerRef={(ref) => (this.current = ref)} />
             )}

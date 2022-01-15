@@ -283,6 +283,7 @@ function RegisterPage(props) {
                     <div className="input-feedback"></div>
                   )}
                 </div>
+                <b></b>
               </Form.Item>
 
               <Form.Item
@@ -314,6 +315,7 @@ function RegisterPage(props) {
                     <div className="input-feedback"></div>
                   )}
                 </div>
+                <b>PublicKey와 PrivateKey는 따로 복사해서 저장바랍니다.</b>
               </Form.Item>
 
               {/* <Form.Item required label="주소">
