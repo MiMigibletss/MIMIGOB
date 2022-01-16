@@ -5,14 +5,13 @@ import publicIp from 'public-ip';
 X-Hashcash: 1:20:YYMMDD[hhmm[ss]]:IPADDRESS::McMybZIhxKXu57jd:ckvi
 ver:bits:date:resource:ext:rand:counter
 The header contains:
-
-ver: Hashcash format version, 1 (which supersedes version 0).
-bits: Number of "partial pre-image" (zero) bits in the hashed code. here we are using 20 bits wich is equivalent to 5 HEX
-date: The time that the message was sent, in the format YYMMDD[hhmm[ss]].
-resource: Resource data string being transmitted, e.g., an IP address or email address.
-ext: Extension (optional; ignored in version 1).
-rand: String of random characters, encoded in base-64 format.
-nounce: Binary counter, encoded in base-64 format.
+ver: Hashcash 형식 버전, 1(버전 0 대체).
+bits: 해시된 코드의 "부분 사전 이미지"(0) 비트 수입니다. 여기서 우리는 5 HEX에 해당하는 20비트를 사용하고 있습니다.
+date: 메시지가 전송된 시간(YYMMDD[hhmm[ss]] 형식).
+resource: 전송 중인 리소스 데이터 문자열(예: IP 주소 또는 이메일 주소).
+ext: 확장자(선택 사항, 버전 1에서는 무시됨).
+rand: base-64 형식으로 인코딩된 임의의 문자 문자열입니다.
+nounce: base-64 형식으로 인코딩된 이진 카운터.
 */
 
 function generateRandomString(size) {
