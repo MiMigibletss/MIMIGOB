@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { withRouter } from "react-router-dom";
+import CoinApp from "./COIN/CoinApp";
 const Home = (props) => {
   const userInfo = useSelector((state) => state.user);
   const [User, setUser] = useState({});
@@ -48,6 +49,7 @@ const Home = (props) => {
       <div>인냥</div>
       <div>  {User.email}</div>
       <div>  {User.public}</div>
+      <CoinApp/>
     </div>
   );
 };
