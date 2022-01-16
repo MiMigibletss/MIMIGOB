@@ -6,6 +6,7 @@ const session = require("express-session");
 const dotenv = require("dotenv");
 const { sequelize } = require("./mysql/models");
 const passportConfig = require("./mysql/passport");
+const { validateMiddleware } = require('./hashcash');
 dotenv.config();
 
 /* DB 라우터 */
@@ -31,7 +32,16 @@ sequelize
 /* 몽고 DB 연결 */ //
 
 app.use(cors());
+//
 
+app.get("/", (request, response) => {
+  return response.send("responding...");
+})
+
+app.post("/counter", validateMiddleware, (request, response) => {
+  return response.status(200).send();
+});
+//
 app.use(express.static(path.join(__dirname, "")));
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
