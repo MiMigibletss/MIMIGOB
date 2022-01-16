@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const block = require('./block');
+const read = require('./read');
 
 
 // const { auth } = require("../../middleware/auth");
@@ -19,6 +20,7 @@ const block = require('./block');
 // });
 
 router.use('/block', block);
+router.use('/read', read);
 
 
 module.exports = router;
