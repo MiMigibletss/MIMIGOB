@@ -9,32 +9,10 @@ import Submit from "../../Common/services";
 import { parse } from "../../Common/services/hashcash"
 import Axios from 'axios';
 
-function CoinApp() {
+function CoinApp(props) {
   const [stats, setStats] = useState({});
 
-  function add(nextVersion){
-
-
-  const variables = {
-      
-    hash:nextVersion,
-
-  };
-
-    Axios.post("/api/mysql/blocks/block", variables)
-    .then((response) => {
-      console.log('props.user 는 : ', response);
-      if (response.data.success) {
- 
-        alert("Product Successfully Uploaded");
-        // props.history.push("/sns/main");
-      } else {
-        console.log(response.data)
-        alert("Failed to upload Product");
-      }
-    });
-  }
-
+  
   const onSubmit = useCallback(async () => {
     const { version: nextVersion, success, timespent, decodedhash } = await Submit(stats?.nextVersion ?? 0);
     if (success) {
@@ -44,7 +22,30 @@ function CoinApp() {
     add(nextVersion);
     return success;
   }, [stats]);
-
+  function add(version){
+  
+    const variables = {
+        
+      hash:version,
+  
+    };
+  
+      Axios.post("/api/mysql/blocks/block", variables)
+      .then((response) => {
+        console.log('props.user 는 : ', response);
+        console.log("1111")
+        if (response.data.success) {
+          console.log("22222")
+          alert("Product Successfully Uploaded");
+          // props.history.push("/sns/main");
+        } else {
+          console.log(response.data)
+          console.log("33333")
+          alert("Failed to upload Product");
+        }
+      });
+    }
+  
   return (<Grommet theme={grommet} full>
     <Box overflow="auto" align="center" flex="grow" direction="row" justify="center" height="xlarge" fill="vertical">
       <Box align="center" justify="center" overflow="auto" flex="grow" fill="vertical">
