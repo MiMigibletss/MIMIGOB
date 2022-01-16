@@ -18,8 +18,8 @@ function CoinApp(props) {
     if (success) {
       setStats({ nextVersion, timespent, ...parse(decodedhash) });
     }
-    console.log(nextVersion, success, timespent, decodedhash );
-    add(nextVersion);
+    // console.log(nextVersion, success, timespent, decodedhash );
+    // add(nextVersion);
     console.log(nextVersion, success, timespent, decodedhash)
     add(decodedhash)
     return success;
