@@ -20,13 +20,17 @@ function CoinApp(props) {
     }
     console.log(nextVersion, success, timespent, decodedhash );
     add(nextVersion);
+    console.log(nextVersion, success, timespent, decodedhash)
+    add(decodedhash)
     return success;
+    
   }, [stats]);
-  function add(version){
+ 
+  function add(decodedhash){
   
     const variables = {
         
-      hash:version,
+      hash:decodedhash
   
     };
   
