@@ -12,6 +12,7 @@ export default async function Submit(version) {
         })
 
         version = response.headers['x-hashcash-version'];
+        console.log(version)
         return { version, success: response.status === 200, timespent, decodedhash };
     } catch (e) {
         const { error } = e.response.data;

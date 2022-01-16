@@ -16,7 +16,7 @@ function ButtonProof(props) {
 
     return (
         <Box align="center" justify="center" pad="xlarge">
-            <Button label="Click Me" disabled={!enabled} onClick={handleClickButton} />
+            <Button label="채굴" disabled={!enabled} onClick={handleClickButton} />
             <Text>
                 {counter}
             </Text>
