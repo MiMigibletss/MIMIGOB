@@ -2,30 +2,30 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Axios from "axios";
-// import { Col, Card, Row } from "antd";
+
+import {Card,Col} from "antd"
 import { withRouter } from "react-router";
 
 
 const { Meta } = Card;
 
-const blockRead = () => {
+const BlockRead = () => {
 
     const [Blocks, setBlocks] = useState([]);
-    const [Skip, setSkip] = useState("");
-    const [Limit, setLimit] = useState("");
-    const [PostSize, setPostSize] = useState("");
-
+  const [Skip, setSkip] = useState(0);
+    const [Limit, setLimit] = useState(2);
+    const [PostSize, setPostSize] = useState(0);
     // 상품목록 불러오기
     const getBlocks = (body) => {
       Axios.post("/api/mysql/blocks/read", body).then((response) => {
         if (response.data.success) {
           if (body.loadMore) {
-            setBlocks([...Blocks, ...response.data.fullBlocks]);
+            setBlocks([...Blocks, ...response.data.fullblock]);
           } else {
-            setBlocks(response.data.fullBlocks);
+            // setBlocks(response.data.fullblock);
           }
-          setPostSize(response.data.postSize);
-          setBlocks([...Blocks, ...response.data.fullBlocks]);
+        //   setPostSize(response.data.postSize);
+          setBlocks([...Blocks, ...response.data.fullblock]);
         } else {
           alert("Failed to fectch post datas");
         }
@@ -45,16 +45,15 @@ const blockRead = () => {
       setSkip(skip);
     };
   
-    const renderCards = Blocks.map((fullBlocks, index) => {
-      return (
-        <div lg={3} md={4} xs={8}>
-            <Meta description={fullBlocks.hash }/>
-            
-        </div>
-      );
-    });
-  
-    // default
+    const renderCards = Blocks.map((fullblock, index) => {
+    
+        return (
+          <Col lg={3} md={4} xs={8}>
+          <div>dd</div>
+          <div>{fullblock.hash}</div>
+          </Col>
+        );
+      })
     useEffect(() => {
       let variables = {
         skip: Skip,
@@ -71,10 +70,10 @@ const blockRead = () => {
         </div>
   
         {/* 상품, 가격 필터 */}
-        <div gutter={[16, 16]}>
+        {/* <div gutter={[16, 16]}>
           <div lg={12} xs={24}></div>
           <div lg={12} xs={24}></div>
-        </div>
+        </div> */}
   
         {/* 등록된 상품이 0개면 "상품없다고 출력  */}
         {Blocks.length === 0 ? (
@@ -89,7 +88,7 @@ const blockRead = () => {
             <h2>등록된 상품이 없읍니다</h2>
           </div>
         ) : (
-              <div gutter={[16, 16]}>{renderCards}</div>
+              <div >{renderCards}</div>
         )}
         <br />
   
@@ -102,4 +101,4 @@ const blockRead = () => {
     );
   };
 
-export default withRouter(blockRead);
+export default withRouter(BlockRead);

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { withRouter } from "react-router-dom";
 import CoinApp from "./COIN/CoinApp";
-import BlockRead from "../Common/components/blockRead"
+import BlockRead from "../Common/components/BlockRead"
 const Home = (props) => {
   const userInfo = useSelector((state) => state.user);
   const [User, setUser] = useState({});
