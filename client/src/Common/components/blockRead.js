@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Axios from "axios";
-
+import { Box, Text } from 'grommet';
 import {Card,Col} from "antd"
 import { withRouter } from "react-router";
 
@@ -48,10 +48,13 @@ const BlockRead = () => {
     const renderCards = Blocks.map((fullblock, index) => {
     
         return (
-          <Col lg={3} md={4} xs={8}>
-          <div>dd</div>
-          <div>{fullblock.hash}</div>
-          </Col>
+          <Box width="400px" height="600px"align="stretch" textAlign= "center" justify="center" flex="shrink" basis="medium" direction="column" round="medium" fill="vertical" background={{ "dark": false, "color": "brand", "opacity": "medium" }} overflow="visible" pad="xsmall">
+          <Text><strong>난이도:</strong> 22 </Text>
+          <Text><strong>소요시간:</strong> 22</Text>
+          <Text truncate={true}><strong>해시:</strong>{fullblock.hash} </Text>
+          <Text><strong>넌스:</strong> 22 </Text>
+          <Text truncate={true}><strong>생성시간:</strong> 22</Text>
+      </Box>
         );
       })
     useEffect(() => {
@@ -66,15 +69,8 @@ const BlockRead = () => {
     return (
         <div style={{ width: "75%", margin: "3rem auto" }}>
         <div style={{ textAlign: "center" }}>
-          <h2>상품 메인 화면</h2>
+          <h2>블록</h2>
         </div>
-  
-        {/* 상품, 가격 필터 */}
-        {/* <div gutter={[16, 16]}>
-          <div lg={12} xs={24}></div>
-          <div lg={12} xs={24}></div>
-        </div> */}
-  
         {/* 등록된 상품이 0개면 "상품없다고 출력  */}
         {Blocks.length === 0 ? (
           <div
@@ -88,7 +84,8 @@ const BlockRead = () => {
             <h2>등록된 상품이 없읍니다</h2>
           </div>
         ) : (
-              <div >{renderCards}</div>
+          <Box textAlign= "center"> <Text  textAlign= "center"><div  textAlign= "center">{renderCards}</div></Text></Box>
+             
         )}
         <br />
   

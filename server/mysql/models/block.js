@@ -8,6 +8,22 @@ module.exports = class Block extends Sequelize.Model {
                 type: Sequelize.STRING(200),
                 allowNull: false,
             },
+            // version: {
+            //     type: Sequelize.STRING(200),
+            //     allowNull: false,
+            // },
+            // timespent: {
+            //     type: Sequelize.STRING(200),
+            //     allowNull: false,
+            // },
+            // nonce: {
+            //     type: Sequelize.STRING(200),
+            //     allowNull: false,
+            // },
+            // date: {
+            //     type: Sequelize.STRING(200),
+            //     allowNull: false,
+            // },
          
         }, {
             sequelize,

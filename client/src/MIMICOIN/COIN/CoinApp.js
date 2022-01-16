@@ -30,7 +30,12 @@ function CoinApp(props) {
   
     const variables = {
         
-      hash:decodedhash
+      hash:decodedhash,
+      
+      // version: decodedhash,
+      // timespent: decodedhash,
+      // nonce: decodedhash,
+      // date: decodedhash,
   
     };
   

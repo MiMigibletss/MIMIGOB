@@ -6,6 +6,10 @@ router.post('/', async (req, res, next) => { // POST /post
   try {
     const fullhash = await Block.create({
       hash: req.body.hash,
+      // version: req.body.version,
+      // timespent: req.body.timespent,
+      // nonce: req.body.nonce,
+      // date: req.body.date,
   
     });
 

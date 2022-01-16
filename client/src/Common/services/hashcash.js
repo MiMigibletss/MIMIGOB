@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+import SHA256 from "crypto-js/sha256"
 import publicIp from 'public-ip';
 
 /*
@@ -17,9 +18,9 @@ nounce: base-64 형식으로 인코딩된 이진 카운터.
 function generateRandomString(size) {
     let longString = '';
     for (let i = 0; i < size; i += 1) {
-        longString += Math.random().toString(36).substr(2, 1);
+        longString += Math.random().toString(18).substr(2, 1);
     }
-    return longString;
+    return SHA256(longString).toString();
 }
 
 export const parse = (decoded) => {
