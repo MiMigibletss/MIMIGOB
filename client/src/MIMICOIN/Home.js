@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { withRouter } from "react-router-dom";
 import CoinApp from "./COIN/CoinApp";
-import BlockRead from "../Common/components/blockRead"
+import BlockRead from "../Common/components/blockRead";
 const Home = (props) => {
   const userInfo = useSelector((state) => state.user);
   const [User, setUser] = useState({});
@@ -37,9 +37,7 @@ const Home = (props) => {
         <div>
           &nbsp; &nbsp;
           <button class="btn btn-outline-light">
-            <a onClick={logoutHandler}>
-              로그아웃
-            </a>
+            <a onClick={logoutHandler}>로그아웃</a>
           </button>
           &nbsp; &nbsp;
         </div>
@@ -48,10 +46,14 @@ const Home = (props) => {
 
       {/* src={logoutIcon} */}
       <div>인냥</div>
-      <div>  {User.email}</div>
-      <div>  {User.public}</div>
-      <CoinApp/>
-      <BlockRead/>
+      <div>
+        Your E-mail: <b> {User.email}</b>
+      </div>
+      <div>
+        Your PublicKey: <b> {User.public}</b>
+      </div>
+      <CoinApp />
+      <BlockRead />
     </div>
   );
 };

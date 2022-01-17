@@ -29,9 +29,9 @@ export const parse = (decoded) => {
 }
 
 // bits = version * 4 to simplify - this logic should be the same at the backend or the hash will be invalid.
-export const generate = async (version = 0, bits = version * 4, complexity = 100) => {
+export const generate = async (version = 0, bits = version * 4, complexity = 100, str=SHA256().toString()) => {
     const ip = await publicIp.v4();
-    let decodedhash = `${version}:${bits}::${ip}:::`;
+    let decodedhash = `${version}:${str}::${ip}:::`;
     if (version === 0) return { decodedhash };
     const rand = generateRandomString(complexity);
     let nonce = 0;
